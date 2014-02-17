@@ -32,6 +32,9 @@
             <param name="android-package" value="nl.xservices.plugins.Calendar" />
          </feature>
       </config-file>
+      <config-file target="AndroidManifest.xml" parent="/manifest">
+         <uses-permission android:name="android.permission.READ_CALENDAR" />
+      </config-file>
       <source-file src="src/android/nl/xservices/plugins/Calendar.java" target-dir="src/nl/xservices/plugins" />
    </platform>
 </plugin>
