@@ -1,4 +1,4 @@
-"use strict";
+cordova.define("nl.x-services.plugins.calendar.Calendar", function(require, exports, module) {"use strict";
 function Calendar() {
 }
 
@@ -113,6 +113,13 @@ Calendar.prototype.modifyEventInNamedCalendar = function (title, location, notes
   }])
 };
 
+Calendar.prototype.listEventsInRange = function (startDate, endDate, successCallback, errorCallback) {
+  cordova.exec(successCallback, errorCallback, "Calendar", "listEventsInRange", [{
+    "startTime": startDate instanceof Date ? startDate.getTime() : null,
+    "endTime": endDate instanceof Date ? endDate.getTime() : null
+  }])
+};
+
 Calendar.install = function () {
   if (!window.plugins) {
     window.plugins = {};
@@ -122,4 +129,4 @@ Calendar.install = function () {
   return window.plugins.calendar;
 };
 
-cordova.addConstructor(Calendar.install);
+cordova.addConstructor(Calendar.install);});
